@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	font-size: 2vw;
+}
+
+button{
+	padding: 10px 15px;
+	font-weight: bold;
+}
+input{
+	padding: 1%;
+}
+label{
+	display: block;
+	float: left;
+	padding: 1.2%;
+	font-weight: bold;
+}
+.table-col-1 { width: 8.33%; }
+.table-col-2 { width: 16.66%; }
+.table-col-3 { width: 25% }
+
+[class*="table-col"]{
+	float: left;
+}
+
+.table-result {
+	overflow: auto;
+}
+
+.table-row-title{
+	text-align: center;
+	overflow: auto;
+}
+.table-row-title div{
+	background-color: black;
+	color: white;
+	padding: 1%;
+	border: solid 0.5px #D5D8DC;
+}
+
+.table-row-data{
+	overflow: hidden;
+}
+.table-row-data div{
+	text-align: center;
+	padding: 0.5% 1%;
+	border: solid 0.5px #D5D8DC;
+}
+
+.table-row-data div:nth-child(2){
+	text-align: left;
+}
+form div{
+	padding: 2% 0;
+	overflow: auto;
+}
+
+.txt-info{
+	padding: 2% 5%;
+	background-color: #ebedef;
+}
+
+
+
+.txt-info input {
+	width: 70%;
+	float: right;
+}
+
+.txt-info h1{
+	text-align: center;
+	font-size: 4vw;
+	margin: 20px 0 50px 0;
+}
+
+.btn-insert{
+	display: block;
+	margin: 20px auto 10px auto;
+}
+
+.btn-score{
+	margin: 20px 0;
+	text-align: center;
+}
+
+.btn-score button:first-child{
+	margin-right: 20px;
+}
+
+.table-row-mark{
+	color: #F4F6F6;
+	background-color:#C0392B;
+}

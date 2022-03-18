@@ -1,0 +1,56 @@
+<!Doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/style-large.css" media="only screen and (min-width: 993px)">
+		<link rel="stylesheet" type="text/css" href="css/style-small.css" media="only screen and (max-width: 992px)">
+		<title>Class Marksheet</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@200&family=Roboto:wght@300;400;900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<main class="container">
+			<section class="txt-info">
+				<header>
+					<h1>Class Marksheet</h1>
+				</header>
+					<form>
+					<div>
+						<label for="txt-name">Họ tên: </label>
+						<input id="txt-name" type="text" name="" >
+					</div>	
+					<div>
+						<label for="txt-math">Điểm toán: </label>
+						<input id="txt-math" type="number" name="" >
+					</div>
+					<div><label for="txt-physic">Điểm lý: </label>
+						<input id="txt-physic" type="number" name="" ></div>
+					<div>
+						<label for="txt-chemistry">Điểm hóa: </label>
+						<input id="txt-chemistry" type="number" step="0.01" name="" >
+					</div>
+					<div>
+						<button type="button" class="btn-insert">Nhập</button>
+					</div>
+					</form>
+			</section>
+			<section class="table-result">
+				<div class="table-row-title">
+					<div class="table-col-1"><h4>STT</h4></div>
+					<div class="table-col-3"><h4>Họ tên</h4></div>
+					<div class="table-col-2"><h4>Toán</h4></div>
+					<div class="table-col-2"><h4>Lý</h4></div>
+					<div class="table-col-2"><h4>Hóa</h4></div>
+					<div class="table-col-2"><h4>Trung bình</h4></div>
+				</div>
+			</section>
+			<div class="btn-score">
+				<button id="btn-average" type="button">Tính điểm trung bình</button>
+				<button id="btn-rank" type="button">Xác định học sinh giỏi</button>
+			</div>
+		</main>
+		<script type="text/javascript" src="js/script.js"></script>
+	</body>		
+</html>
