@@ -4,6 +4,10 @@
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 	font-size: 1vw;
+	text-decoration: none;
+}
+a{
+	color: white;
 }
 button{
 	padding: 10px 15px;

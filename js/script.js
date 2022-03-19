@@ -1,4 +1,4 @@
-// ĐỊNH NGHĨA MỘT CONSTRUCTOR OBJECT STUDENT
+//========================================= ĐỊNH NGHĨA MỘT CONSTRUCTOR OBJECT STUDENT =====================================
 function Student(name, math, physic, chemistry) {
 	this.name = name;
 	this.math = math;
@@ -10,7 +10,7 @@ function Student(name, math, physic, chemistry) {
 }
 
 
-// KHAI BÁO CÁC BIẾN CÓ SCOPE GLOBAL
+//============================================= KHAI BÁO CÁC BIẾN CÓ SCOPE GLOBAL =========================================
 let number_student = 0;
 let add_row = "";
 const array_student = [];
@@ -23,9 +23,10 @@ const btn_average = document.getElementById("btn-average");
 const btn_rank = document.getElementById("btn-rank");
 btn_add.addEventListener("click", add_student);
 btn_average.addEventListener("click", get_average);
-btn_rank.addEventListener("click", get_rank)
+btn_rank.addEventListener("click", get_rank);
 
-// HÀM THÊM MỚI MỘT HỌC SINH VÀO BẢNG ĐIỂM
+//============================================ HÀM THÊM MỚI MỘT HỌC SINH VÀO BẢNG ĐIỂM =====================================
+
 function add_student() {
 
 	// LẤY GIÁ TRỊ CÁC FIELD TEXT
@@ -33,94 +34,77 @@ function add_student() {
 	const txt_math = document.getElementById("txt-math");
 	const txt_physic = document.getElementById("txt-physic");
 	const txt_chemistry = document.getElementById("txt-chemistry");
-	if(txt_name.value === "")
-	{
-		alert("Họ tên không được để trống !");
-	}
-	else
-		if(txt_math.value === "")
-		{
-			alert("Nhập điểm môn toán !");
-		}
-		else
-			if(parseFloat(txt_math.value) < 0 || parseFloat(txt_math.value) > 10)
-			{
-				alert("Nhập lại điểm môn toán");
-			}
-			else
-				if(txt_physic.value === "")
-				{
-					alert("Nhập điểm môn lý !");
-				}
-				else
-					if(parseFloat(txt_physic.value) < 0 || parseFloat(txt_physic.value) > 10)
-					{
-						alert("Nhập lại điểm môn lý");
-					}
-					else
-						if(txt_chemistry.value === "")
-						{
-							alert("Nhập điểm môn hóa !");
-						}
-						else
-							if(parseFloat(txt_chemistry.value) < 0 || parseFloat(txt_chemistry.value) > 10)
-							{
-								alert("Nhập lại điểm môn hóa");
-							}
-							else
-								{
-									// TẠO MỚI 1 ĐỐI TƯỢNG STUDENT VÀ THÊM GIÁ TRỊ VÀO CÁC THUỘC TÍNH
-									const student = new Student(txt_name.value, txt_math.value, txt_physic.value, txt_chemistry.value);
-									const table_result = document.querySelector(".table-result");
-									if(number_student < 1 )
-										{	
-											number_student++;
-											add_row += "<div class='table-row-title'><div class='table-col-1'><h4>STT</h4></div>"
-												 		+ "<div class='table-col-3'><h4>Họ tên</h4></div>"
-												 		+ "<div class='table-col-2'><h4>Toán</h4></div>"
-												 		+ "<div class='table-col-2'><h4>Lý</h4></div>"
-												 		+ "<div class='table-col-2'><h4>Hóa</h4></div>"
-												 		+ "<div class='table-col-2'><h4>Trung bình</h4></div></div>"
-												 		+ "<div class='table-row-data'>"
-															+  "<div class='table-col-1'>"+ number_student +"</div>"
-													 		+ "<div class='table-col-3'>"+ student.name +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.math +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.physic +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.chemistry +"</div>"
-													 		+ "<div class='table-col-2'>?</div></div>";;	
-										}
-										else
-											{
-												number_student++;
-														add_row += "<div class='table-row-data'>"
-															+  "<div class='table-col-1'>"+ number_student +"</div>"
-													 		+ "<div class='table-col-3'>"+ student.name +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.math +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.physic +"</div>"
-													 		+ "<div class='table-col-2'>"+ student.chemistry +"</div>"
-													 		+ "<div class='table-col-2'>?</div></div>";				
+							
+							
+							if(validate_input(txt_name.value)
+								    && validate_input(txt_math.value)
+								    && validate_input(txt_physic.value)
+								    && validate_input(txt_chemistry.value))
+								{	
+
+									if(validate_name(txt_name.value) === 0)
+									{
+												if(validate_score(parseFloat(txt_math.value)) 
+													&& validate_score(parseFloat(txt_physic.value)) 
+													&& validate_score(parseFloat(txt_chemistry.value)))
+												{
+												// TẠO MỚI 1 ĐỐI TƯỢNG STUDENT VÀ THÊM GIÁ TRỊ VÀO CÁC THUỘC TÍNH
+												const student = new Student(txt_name.value, txt_math.value, txt_physic.value, txt_chemistry.value);
+												const table_result = document.querySelector(".table-result");
+												if(number_student < 1 )
+													{	
+														number_student++;
+														add_row += "<div class='table-row-title'><div class='table-col-1'><h4>STT</h4></div>"
+															 		+ "<div class='table-col-3'><h4>Họ tên</h4></div>"
+															 		+ "<div class='table-col-2'><h4>Toán</h4></div>"
+															 		+ "<div class='table-col-2'><h4>Lý</h4></div>"
+															 		+ "<div class='table-col-2'><h4>Hóa</h4></div>"
+															 		+ "<div class='table-col-2'><h4>Trung bình</h4></div></div>"
+															 		+ "<div class='table-row-data'>"
+																		+  "<div class='table-col-1'>"+ number_student +"</div>"
+																 		+ "<div class='table-col-3'>"+ student.name +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.math +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.physic +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.chemistry +"</div>"
+																 		+ "<div class='table-col-2'>?</div></div>";;	
+													}
+													else
+														{
+															number_student++;
+																	add_row += "<div class='table-row-data'>"
+																		+  "<div class='table-col-1'>"+ number_student +"</div>"
+																 		+ "<div class='table-col-3'>"+ student.name +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.math +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.physic +"</div>"
+																 		+ "<div class='table-col-2'>"+ student.chemistry +"</div>"
+																 		+ "<div class='table-col-2'>?</div></div>";				
+														}
+
+
+												// HIỂN THỊ LÊN HTML
+												table_result.innerHTML = add_row;
+
+												//RESET FORM 
+												txt_name.value = "";
+												txt_math.value = "";
+												txt_physic.value = "";
+												txt_chemistry.value ="";
+
+												//ADD OBJECT STUDENT VÀO ARRAY_STUDENT
+												array_student.push(student);
 											}
-
-
-									// HIỂN THỊ LÊN HTML
-									table_result.innerHTML = add_row;
-
-									//RESET FORM 
-									txt_name.value = "";
-									txt_math.value = "";
-									txt_physic.value = "";
-									txt_chemistry.value ="";
-
-									//ADD OBJECT STUDENT VÀO ARRAY_STUDENT
-									array_student.push(student);
-								}
+											else
+												window.alert("Điểm các môn phải trong khoản từ 0 -> 10");
+											}
+											else
+												window.alert("Họ tên không được chứa số");
+										}
+								else
+									window.alert("Cần nhập tất cả các trường Họ tên, điểm toán, lý, hóa");
 
 }
 
-
-
-
-//HÀM TÍNH ĐIỂM TRUNG BÌNH
+//============================================== HÀM TÍNH ĐIỂM TRUNG BÌNH ===============================================
 function get_average() {
 	if(array_student.length != 0){
 
@@ -135,14 +119,8 @@ function get_average() {
 		window.alert("Không có học sinh để tính điểm trung bình");
 }
 
+//=============================================== HÀM XÉT HỌC SINH GIỎI ===================================================
 
-
-
-
-
-
-
-// HÀM XÉT HỌC SINH GIỎI
 function get_rank(){
 	if(array_student.length != 0 )
 	{	
@@ -165,3 +143,55 @@ function get_rank(){
 	else
 		window.alert("Không có học sinh để xét học sinh giỏi");
 }
+
+//================================================ HÀM VALIDATE ĐIỂM NHẬP VÀO =============================================
+
+function validate_score(value)
+{
+	if (value < 0)
+		return false;
+	else
+		if (value > 10)
+			return false;
+		else
+			return true;
+}
+
+//================================================== HÀM VALIDATE TÊN NHẬP VÀO ============================================
+
+function validate_name(value)
+{	
+	let flag = 0;
+	for(let x of value)
+	{
+		if(parseFloat(x)) // return một số thực nếu là số thực, return NaN nếu không phải số thực
+			flag ++;
+	}
+	return flag;
+}
+
+//=================================================== HÀM KIỂM TRA ĐÃ NHẬP DỮ LIỆU HAY CHƯA ================================
+
+function validate_input(value) 
+{
+	if(value === "")
+		return false;
+	else
+		return true;
+}
+
+//==================================================== HÀM SẮP XẾP ĐIỂM TRUNG BÌNH TĂNG DẦN =================================
+
+// function get_arrange()
+// {	
+// 	console.log(array_student);
+// 	if(array_student.length != 0)
+// 	{
+// 		for(let x of array_student)
+// 		{
+
+// 		}
+// 	}
+// 	else
+// 		alert("Chưa có danh sách học sinh cần sắp sếp!");
+// }
